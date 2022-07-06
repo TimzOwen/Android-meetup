@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="nameStyle">
+        <item name="android:paddingTop">18dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColorLink">#000000</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
