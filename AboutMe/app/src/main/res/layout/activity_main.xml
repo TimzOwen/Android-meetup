@@ -4,6 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="myName"
+            type="com.timzowen.aboutme.MyName" />
+    </data>
+
 <androidx.appcompat.widget.LinearLayoutCompat
 
     android:layout_width="match_parent"
@@ -19,7 +25,7 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:contentDescription="@string/yellow_star"
-        android:text="@string/name" />
+        android:text="@={myName.name}" />
 
     <EditText
         android:id="@+id/et_nick_name"
@@ -48,6 +54,7 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:visibility="gone"
+        android:text="@={myName.nickname}"
         style="@style/nameStyle"
         />
 

@@ -9,11 +9,15 @@ import androidx.databinding.DataBindingUtil
 import com.timzowen.aboutme.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
     private lateinit var binding : ActivityMainBinding
+    private var myName : MyName = MyName("Timz Owen ") // Instantiate and set the name here from data class
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        binding.myName = myName
 
         binding.btnDone.setOnClickListener {
             addNickName(it)
@@ -22,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun addNickName(view : View){
         binding.apply {
-            binding.tvNickName.text = binding.etNickName.text
+            myName?.nickname = etNickName.text.toString()
             invalidateAll()
             binding.etNickName.visibility = View.GONE
             // hide button visibility
