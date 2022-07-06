@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,6 +14,7 @@
         style="@style/nameStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textAlignment="center"
         android:contentDescription="@string/yellow_star"
         android:text="@string/name" />
 
@@ -24,4 +26,18 @@
         app:srcCompat="@android:drawable/btn_star_big_on"
         android:contentDescription="@string/yellow_star" />
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+    <ScrollView
+        android:id="@+id/bio_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="18dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/nameStyle"
+            android:lineSpacingMultiplier="1.5"
+            android:text="@string/bio_desc"/>
+    </ScrollView>
+
+</androidx.appcompat.widget.LinearLayoutCompat >
