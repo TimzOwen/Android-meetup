@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
+
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bio_scroll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="18dp">
+
+<androidx.appcompat.widget.LinearLayoutCompat
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginTop="18dp"
     android:contentDescription="@string/yello_star"
     android:orientation="vertical"
@@ -18,6 +26,36 @@
         android:contentDescription="@string/yellow_star"
         android:text="@string/name" />
 
+    <EditText
+        android:id="@+id/et_nick_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:autofillHints="Nick Name"
+        style="@style/nameStyle"
+        android:textAlignment="center"
+        android:hint="@string/nick_name"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btn_done"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:text="@string/done" />
+
+    <TextView
+        android:id="@+id/tv_nick_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:visibility="gone"
+        style="@style/nameStyle"
+        />
+
     <ImageView
         android:id="@+id/star_image"
         android:layout_width="match_parent"
@@ -26,18 +64,12 @@
         app:srcCompat="@android:drawable/btn_star_big_on"
         android:contentDescription="@string/yellow_star" />
 
-    <ScrollView
-        android:id="@+id/bio_scroll"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="18dp">
-
-        <TextView
+    <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/nameStyle"
             android:lineSpacingMultiplier="1.5"
             android:text="@string/bio_desc"/>
-    </ScrollView>
 
 </androidx.appcompat.widget.LinearLayoutCompat >
+</ScrollView>
