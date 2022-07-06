@@ -5,13 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="18dp"
+    android:contentDescription="@string/yello_star"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
+        style="@style/nameStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/name"
-        style="@style/nameStyle" />
+        android:contentDescription="@string/yellow_star"
+        android:text="@string/name" />
+
+    <ImageView
+        android:id="@+id/star_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:srcCompat="@android:drawable/btn_star_big_on"
+        android:contentDescription="@string/yellow_star" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

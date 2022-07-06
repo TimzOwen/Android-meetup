@@ -7,4 +7,5 @@
         <item name="android:textColorLink">#000000</item>
         <item name="android:textStyle">bold</item>
     </style>
+
 </resources>
