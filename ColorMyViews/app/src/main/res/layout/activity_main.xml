@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/box_one_text"
@@ -8,7 +9,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/box_one"
         style="@style/WhiteBox"
         android:layout_width="0dp"
         android:layout_height="34dp"
@@ -30,10 +31,10 @@
         android:layout_marginTop="16dp"
         android:text="@string/box_two"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/box_one" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/box_three"
         style="@style/WhiteBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -41,26 +42,26 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:text="@string/box_three"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintBottom_toTopOf="@+id/box_four"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/bnt_two_text"
         app:layout_constraintTop_toTopOf="@+id/bnt_two_text" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/box_four"
         style="@style/WhiteBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:text="@string/box_four"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintBottom_toTopOf="@+id/box_five"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/bnt_two_text"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/box_three" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/box_five"
         style="@style/WhiteBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -71,6 +72,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/bnt_two_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/bnt_two_text"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/box_four" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
