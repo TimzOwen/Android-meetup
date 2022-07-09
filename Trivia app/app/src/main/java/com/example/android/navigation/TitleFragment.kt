@@ -14,9 +14,9 @@ class TitleFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = DataBindingUtil.inflate<FragmentTitleBinding>(inflater,R.layout.fragment_title,container,false)
 
-        binding.playButton.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.gameFragment)
-        )
+        binding.playButton.setOnClickListener{v : View ->
+            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToGameFragment())
+        }
 
         setHasOptionsMenu(true) // to respond to the options menu on the action bar
         return binding.root

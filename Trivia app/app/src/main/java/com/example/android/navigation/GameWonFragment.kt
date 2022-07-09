@@ -1,11 +1,10 @@
-
-
 package com.example.android.navigation
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -20,8 +19,11 @@ class GameWonFragment : Fragment() {
                 inflater, R.layout.fragment_game_won, container, false)
 
         binding.nextMatchButton.setOnClickListener {
-            findNavController().navigate(R.id.gameFragment)
+            findNavController().navigate(GameOverFragmentDirections.actionGameOverFragment2ToGameFragment())
         }
+
+        val args = GameWonFragmentArgs.fromBundle(arguments!!)
+        Toast.makeText(context, "NumCorrect: ${args.numCorrect}, NumOfQuestions ${args.numQuestions} ", Toast.LENGTH_SHORT).show()
 
         return binding.root
     }
