@@ -26,6 +26,10 @@ class GameWonFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.winner_menu, menu)
+        // check if no activity hide the share intent activity
+       if (null == getShareIntent().resolveActivity(activity!!.packageManager)){
+           menu.findItem(R.id.share).isVisible = true
+       }
     }
     private fun getShareIntent() : Intent{
         val args = GameWonFragmentArgs.fromBundle(arguments!!)
