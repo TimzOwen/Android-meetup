@@ -64,6 +64,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
     )
     private var currentDessert = allDesserts[0]
 
+    @Override
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
