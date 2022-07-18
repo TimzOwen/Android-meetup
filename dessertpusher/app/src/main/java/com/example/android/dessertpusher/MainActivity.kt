@@ -18,7 +18,6 @@ package com.example.android.dessertpusher
 
 import android.content.ActivityNotFoundException
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -33,6 +32,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 
     private var revenue = 0
     private var dessertsSold = 0
+    private lateinit var dessertTimer: DessertTimer
 
     // Contains all the views
     private lateinit var binding: ActivityMainBinding
@@ -75,6 +75,8 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
         }
 
         Timber.i("onCreate Method called")
+
+        dessertTimer = DessertTimer()   // Instantiate the timer
 
         // Set the TextViews to the right values
         binding.revenue = revenue
@@ -153,6 +155,28 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 
     override fun onStart() {
         Timber.i("onStart Method called")
+        dessertTimer.startTimer()
         super.onStart()
+    }
+
+    override fun onDestroy() {
+        Timber.i("onDestroy Method called")
+        super.onDestroy()
+    }
+
+    override fun onPause() {
+        Timber.i("OnPause just called")
+        super.onPause()
+    }
+
+    override fun onResume() {
+        Timber.i("Resumed method called")
+        super.onResume()
+    }
+
+    override fun onStop() {
+        dessertTimer.stopTimer()
+        Timber.i("onStop just got triggered")
+        super.onStop()
     }
 }
