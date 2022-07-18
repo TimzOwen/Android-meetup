@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 
         Timber.i("onCreate Method called")
 
-        dessertTimer = DessertTimer()   // Instantiate the timer
+        dessertTimer = DessertTimer(this.lifecycle)   // Instantiate the timer
 
         // Set the TextViews to the right values
         binding.revenue = revenue
@@ -154,8 +154,6 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
     }
 
     override fun onStart() {
-        Timber.i("onStart Method called")
-        dessertTimer.startTimer()
         super.onStart()
     }
 
@@ -175,8 +173,6 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
     }
 
     override fun onStop() {
-        dessertTimer.stopTimer()
-        Timber.i("onStop just got triggered")
         super.onStop()
     }
 }
