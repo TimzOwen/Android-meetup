@@ -21,6 +21,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -42,9 +43,7 @@ class GameFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
 
         // Inflate view and obtain an instance of the binding class
-        binding = DataBindingUtil.inflate(
-                inflater,
-                R.layout.game_fragment,
+        binding = DataBindingUtil.inflate(inflater,R.layout.game_fragment,
                 container,
                 false
         )
@@ -53,20 +52,32 @@ class GameFragment : Fragment() {
 
         binding.correctButton.setOnClickListener {
             viewModel.onCorrect()
-            updateWordText()
+//            updateWordText()
+
         }
         binding.skipButton.setOnClickListener {
             viewModel.onSkip()
-            updateWordText()
         }
+
+        // GEt word observer
+        viewModel.word.observe(viewLifecycleOwner, Observer { newWord ->
+            binding.wordText.text = newWord
+        })
 
         // Get the observer
         viewModel.score.observe(viewLifecycleOwner, Observer { newScore ->
             binding.scoreText.text = newScore.toString()
         })
 
+        //Instantiate game finished
+        viewModel.eventGameFinish.observe(viewLifecycleOwner, Observer {hasFinished ->
+            if (hasFinished){
+                gameFinished()
+            }
+        })
 
-        updateWordText()
+
+//        updateWordText()
         return binding.root
 
     }
@@ -75,17 +86,10 @@ class GameFragment : Fragment() {
      * Called when the game is finished
      */
     private fun gameFinished() {
-        val currentScore = viewModel.score.value ?: 0
-        val action = GameFragmentDirections.actionGameToScore(currentScore)
-        findNavController(this).navigate(action)
-    }
-
-
-    /** Methods for updating the UI **/
-
-    private fun updateWordText() {
-        binding.wordText.text = viewModel.word
-
+//        val currentScore = viewModel.score.value ?: 0
+//        val action = GameFragmentDirections.actionGameToScore(currentScore)
+//        findNavController(this).navigate(action)
+        Toast.makeText(this.activity, "Game is over", Toast.LENGTH_SHORT).show()
     }
 
 
