@@ -5,15 +5,28 @@ import android.text.format.DateUtils
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 
+private val CORRECT_BUZZ_PATTERN = longArrayOf(100,100,100,100,100)
+private val PANIC_BUZZ_PATTERN = longArrayOf(0,200)
+private val GAME_OVER_BUZZ_PATTERN = longArrayOf(0,200)
+private val NO_BUZZ_PATTERN = longArrayOf(0)
+
 class GameViewModel : ViewModel() {
+
+    enum class BuzzType(val pattern : LongArray){
+        CORRECT(CORRECT_BUZZ_PATTERN),
+        GAME_OVER(GAME_OVER_BUZZ_PATTERN),
+        COUNTDOWN_PANIC(PANIC_BUZZ_PATTERN),
+        NO_BUZZ(NO_BUZZ_PATTERN)
+    }
 
     //companion objects for counter
     companion object{
         private const val DONE = 0L
         private const val ONE_SECOND = 1000L
-        private const val COUNTDOWN_TME = 10000L
+        private const val COUNTDOWN_TME = 60000L
     }
     //timer counter
     private val timer : CountDownTimer
@@ -21,6 +34,15 @@ class GameViewModel : ViewModel() {
     //get current time
     private var _current_time = MutableLiveData<Long>()
     val current_time : LiveData<Long> get() = _current_time
+
+    // make live data"
+    val currentTimeString = Transformations.map(current_time) { time ->
+        DateUtils.formatElapsedTime(time)
+    }
+
+    private val _eventBuzz = MutableLiveData<BuzzType>()
+    val eventBuzz: LiveData<BuzzType>
+        get() = _eventBuzz
 
     // The current word
     private var _word = MutableLiveData<String>()
@@ -114,5 +136,9 @@ class GameViewModel : ViewModel() {
 
     fun onGameFinishComplete(){
         _eventGameFinish.value = false
+    }
+
+    fun onBuzzComplete() {
+        _eventBuzz.value = BuzzType.NO_BUZZ
     }
 }
