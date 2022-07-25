@@ -22,7 +22,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -41,7 +40,7 @@ class GameFragment : Fragment() {
     private lateinit var binding: GameFragmentBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
 
         // Inflate view and obtain an instance of the binding class
         binding = DataBindingUtil.inflate(inflater,R.layout.game_fragment,
@@ -60,26 +59,26 @@ class GameFragment : Fragment() {
         }
 
         // GEt word observer
-        viewModel.word.observe(viewLifecycleOwner, Observer { newWord ->
+        viewModel.word.observe(viewLifecycleOwner) { newWord ->
             binding.wordText.text = newWord
-        })
+        }
 
-        viewModel.current_time.observe(viewLifecycleOwner, Observer { newTime ->
+        viewModel.current_time.observe(viewLifecycleOwner)  { newTime ->
             binding.timerText.text = DateUtils.formatElapsedTime(newTime)
-        })
+        }
 
         // Get the observer
-        viewModel.score.observe(viewLifecycleOwner, Observer { newScore ->
+        viewModel.score.observe(viewLifecycleOwner) { newScore ->
             binding.scoreText.text = newScore.toString()
-        })
+        }
 
         //Instantiate game finished
-        viewModel.eventGameFinish.observe(viewLifecycleOwner, Observer {hasFinished ->
-            if (hasFinished){
+        viewModel.eventGameFinish.observe(viewLifecycleOwner) { hasFinished ->
+            if (hasFinished) {
                 gameFinished()
                 viewModel.onGameFinishComplete()
             }
-        })
+        }
 
         return binding.root
 
