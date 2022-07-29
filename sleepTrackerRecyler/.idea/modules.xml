@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sleepTrackerRecyler.iml" filepath="$PROJECT_DIR$/.idea/modules/sleepTrackerRecyler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/sleepTrackerRecyler.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/sleepTrackerRecyler.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/sleepTrackerRecyler.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/sleepTrackerRecyler.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/sleepTrackerRecyler.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/sleepTrackerRecyler.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/sleepTrackerRecyler.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/sleepTrackerRecyler.app.unitTest.iml" />
+    </modules>
+  </component>
+</project>
