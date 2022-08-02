@@ -1,4 +1,4 @@
-package com.timzowen.myapplication.Adapters
+package com.timzowen.myapplication.adapters
 
 import android.view.LayoutInflater
 import android.view.View
