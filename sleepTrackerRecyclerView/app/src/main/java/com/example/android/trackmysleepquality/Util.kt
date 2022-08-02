@@ -96,7 +96,7 @@ fun convertNumericQualityToString(quality: Int, resources: Resources): String {
 @SuppressLint("SimpleDateFormat")
 fun convertLongToDateString(systemTime: Long): String {
     return SimpleDateFormat("EEEE MMM-dd-yyyy' Time: 'HH:mm")
-        .format(systemTime).toString()
+            .format(systemTime).toString()
 }
 
 /**
@@ -149,4 +149,4 @@ fun formatNights(nights: List<SleepNight>, resources: Resources): Spanned {
  * A ViewHolder holds a view for the [RecyclerView] as well as providing additional information
  * to the RecyclerView such as where on the screen it was last drawn during scrolling.
  */
-class ViewHolder(val textView: TextView): RecyclerView.ViewHolder(textView)
+class TextItemViewHolder(val textView: TextView): RecyclerView.ViewHolder(textView)
