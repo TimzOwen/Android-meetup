@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="pasta">Chicken Pizza</string>
+    <string name="pizza_image">pizza image</string>
 </resources>
