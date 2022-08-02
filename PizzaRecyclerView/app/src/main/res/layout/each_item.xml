@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="20dp"
-    app:cardElevation="5dp"
     android:layout_marginHorizontal="10dp"
     android:layout_marginVertical="16dp"
-    >
-
+    app:cardCornerRadius="20dp"
+    app:cardElevation="5dp">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <ImageView
             android:id="@+id/iv_pizza"
             android:layout_width="120dp"
             android:layout_height="120dp"
+            android:contentDescription="@string/pizza_image"
             android:scaleType="fitXY"
             android:src="@drawable/pizza1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/pizza_image" />
-
+            app:layout_constraintTop_toTopOf="parent" />
         <TextView
             android:id="@+id/tv_pizza_text"
             android:layout_width="wrap_content"
@@ -34,14 +31,8 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@id/iv_pizza"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"/>
-
-
-
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
 </androidx.cardview.widget.CardView>
