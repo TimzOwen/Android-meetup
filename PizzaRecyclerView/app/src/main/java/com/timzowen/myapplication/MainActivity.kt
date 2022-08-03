@@ -3,7 +3,6 @@ package com.timzowen.myapplication
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.timzowen.myapplication.adapters.FoodAdapter
 import com.timzowen.myapplication.data.Food
 import com.timzowen.myapplication.databinding.ActivityMainBinding
