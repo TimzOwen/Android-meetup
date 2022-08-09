@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         pizzaListItems()
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.setHasFixedSize(true)
-        binding.recyclerView.adapter = pizzaListAdapter
+        binding.recyclerView.adapter = foodAdapter
 
     }
     private fun foodListItems(){
