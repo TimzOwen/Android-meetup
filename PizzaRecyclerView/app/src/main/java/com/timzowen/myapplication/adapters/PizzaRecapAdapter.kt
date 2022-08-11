@@ -12,8 +12,8 @@ import com.timzowen.myapplication.data.PizzaRecap
 class PizzaRecapAdapter(private val pizzaList : ArrayList<PizzaRecap>) : RecyclerView.Adapter<PizzaRecapAdapter.PizzaViewHolder>() {
 
     class PizzaViewHolder(itemView : View):RecyclerView.ViewHolder(itemView){
-        var image : ImageView = itemView.findViewById(R.id.iv_pizza)!!
-        var name : TextView = itemView.findViewById(R.id.tv_recap_pizza)!!
+        var image : ImageView = itemView.findViewById(R.id.iv_recap_image)
+        var name : TextView = itemView.findViewById(R.id.tv_recap_pizza)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PizzaViewHolder {
         val layout = LayoutInflater.from(parent.context).inflate(R.layout.recap_layout,parent,false)

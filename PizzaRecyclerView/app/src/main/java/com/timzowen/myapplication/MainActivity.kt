@@ -3,8 +3,10 @@ package com.timzowen.myapplication
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.timzowen.myapplication.adapters.ChefAdapter
 import com.timzowen.myapplication.adapters.FoodAdapter
 import com.timzowen.myapplication.adapters.PizzaRecapAdapter
+import com.timzowen.myapplication.data.Chef
 import com.timzowen.myapplication.data.Food
 import com.timzowen.myapplication.data.PizzaRecap
 import com.timzowen.myapplication.databinding.ActivityMainBinding
@@ -16,6 +18,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
     private lateinit var pizzaList : ArrayList<PizzaRecap>
     private lateinit var pizzaListAdapter : PizzaRecapAdapter
+    private lateinit var chefList : ArrayList<Chef>
+    private lateinit var chefAdapter : ChefAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -24,13 +28,17 @@ class MainActivity : AppCompatActivity() {
 
         foodList = ArrayList()
         pizzaList = ArrayList()
+        chefList = ArrayList()
         foodAdapter = FoodAdapter(foodList)
         pizzaListAdapter = PizzaRecapAdapter(pizzaList)
+        chefAdapter = ChefAdapter(chefList)
         foodListItems()
         pizzaListItems()
+        chefProfiles()
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.setHasFixedSize(true)
-        binding.recyclerView.adapter = foodAdapter
+        // you can switch between the adapter here to see the different layouts
+        binding.recyclerView.adapter = pizzaListAdapter
 
     }
     private fun foodListItems(){
@@ -68,5 +76,23 @@ class MainActivity : AppCompatActivity() {
         pizzaList.add(PizzaRecap(R.drawable.pasta,"Extra Chicken"))
         pizzaList.add(PizzaRecap(R.drawable.piza_spagethi,"meat Pizza"))
         pizzaList.add(PizzaRecap(R.drawable.pizza12,"vegez Chicken"))
+    }
+    private fun chefProfiles(){
+        chefList.add(Chef(R.drawable.doctor1,"Chef Timz"))
+        chefList.add(Chef(R.drawable.doctor2,"Chef Shem "))
+        chefList.add(Chef(R.drawable.doctor3,"Chef Kiptoo"))
+        chefList.add(Chef(R.drawable.doctor4,"Chef Owen"))
+        chefList.add(Chef(R.drawable.doctor5,"Chef Harun"))
+        chefList.add(Chef(R.drawable.doctor1,"Chef Timz"))
+        chefList.add(Chef(R.drawable.doctor2,"Chef Shem "))
+        chefList.add(Chef(R.drawable.doctor3,"Chef Kiptoo"))
+        chefList.add(Chef(R.drawable.doctor4,"Chef Owen"))
+        chefList.add(Chef(R.drawable.doctor5,"Chef Harun"))
+        chefList.add(Chef(R.drawable.doctor1,"Chef Timz"))
+        chefList.add(Chef(R.drawable.doctor2,"Chef Shem "))
+        chefList.add(Chef(R.drawable.doctor3,"Chef Kiptoo"))
+        chefList.add(Chef(R.drawable.doctor4,"Chef Owen"))
+        chefList.add(Chef(R.drawable.doctor5,"Chef Harun"))
+
     }
 }
