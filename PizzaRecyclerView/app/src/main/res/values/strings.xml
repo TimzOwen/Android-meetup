@@ -4,4 +4,5 @@
     <string name="pizza_image">pizza image</string>
     <string name="mini_pizza">Mini Pizza</string>
     <string name="chef_name">Chef Name</string>
+    <string name="pizza_holder">pizza holder</string>
 </resources>
