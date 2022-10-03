@@ -18,15 +18,15 @@ public class NoteRepository {
         notesList = noteDAO.getAllNotes();
     }
 
-    public void insertData(){
+    public void insertData(Note note){
         new InsertAsyncTask(noteDAO).execute();
     }
 
-    public void updateData(){
+    public void updateData(Note note){
         new UpdateAsyncTask(noteDAO).execute();
     }
 
-    public void deleteData(){
+    public void deleteData(Note note){
         new DeleteAsyncTask(noteDAO).execute();
     }
 
