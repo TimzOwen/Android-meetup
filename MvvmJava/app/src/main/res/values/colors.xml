@@ -10,5 +10,5 @@
     
     <color name="orange_dark">#FF9900</color>
     <color name="orange_light">#FFB546</color>
-    <color name="orange_o">#854F00</color>
+    <color name="dark_o">#854F00</color>
 </resources>
