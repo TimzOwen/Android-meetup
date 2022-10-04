@@ -16,6 +16,7 @@ public class AddNoteActivity extends AppCompatActivity {
     private NumberPicker numberPicker;
 
     public static final String EXTRA_TITLE = "com.timzowen.mvvmjava.EXTRA_TITLE";
+    public static final String EXTRA_ID = "com.timzowen.mvvmjava.EXTRA_ID";
     public static final String EXTRA_DESC = "com.timzowen.mvvmjava.EXTRA_DESC";
     public static final String EXTRA_PRIORITY = "com.timzowen.mvvmjava.EXTRA_PRIORITY";
 
@@ -35,6 +36,14 @@ public class AddNoteActivity extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_close_24);
         setTitle("Add Note.");
 
+        Intent editIntent = getIntent();
+        if (editIntent.hasExtra(EXTRA_ID)){
+            setTitle("Edit Note");
+            mTitleEdit.setText(editIntent.getStringExtra(EXTRA_TITLE));
+            mDescEdit.setText(editIntent.getStringExtra(EXTRA_DESC));
+            numberPicker.setValue(editIntent.getIntExtra(EXTRA_PRIORITY,1));
+        }
+
         mSaveBtn.setOnClickListener(view -> {
             String title = mTitleEdit.getText().toString();
             String desc = mDescEdit.getText().toString();
@@ -48,6 +57,11 @@ public class AddNoteActivity extends AppCompatActivity {
             dataIntent.putExtra(EXTRA_TITLE,title);
             dataIntent.putExtra(EXTRA_DESC, desc);
             dataIntent.putExtra(EXTRA_PRIORITY,priority);
+
+            int id = getIntent().getIntExtra(EXTRA_ID,-1);
+            if (id != -1){
+                dataIntent.putExtra(EXTRA_ID,id);
+            }
 
             setResult(RESULT_OK, dataIntent);
             finish();
