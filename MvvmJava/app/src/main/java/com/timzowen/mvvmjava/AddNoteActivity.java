@@ -30,9 +30,10 @@ public class AddNoteActivity extends AppCompatActivity {
         numberPicker = findViewById(R.id.number_picker);
 
         numberPicker.setMinValue(1);
-        numberPicker.setMinValue(10);
+        numberPicker.setMaxValue(10);
 
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_close_24);
+        setTitle("Add Note.");
 
         mSaveBtn.setOnClickListener(view -> {
             String title = mTitleEdit.getText().toString();
