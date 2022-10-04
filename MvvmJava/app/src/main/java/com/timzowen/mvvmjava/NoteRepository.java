@@ -5,6 +5,8 @@ import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 
+import java.io.IOError;
+import java.io.IOException;
 import java.util.List;
 
 public class NoteRepository {
@@ -19,26 +21,23 @@ public class NoteRepository {
     }
 
     public void insertData(Note note){
-        new InsertAsyncTask(noteDAO).execute();
+        new InsertAsyncTask(noteDAO).execute(note);
     }
-
-    public void updateData(Note note){
-        new UpdateAsyncTask(noteDAO).execute();
-    }
-
     public void deleteData(Note note){
-        new DeleteAsyncTask(noteDAO).execute();
+        new DeleteAsyncTask(noteDAO).execute(note);
     }
-
+    public void updateData(Note note){
+        new UpdateAsyncTask(noteDAO).execute(note);
+    }
     public void deleteAllData(){
         new DeleteAllAsyncTask(noteDAO).execute();
     }
 
     public LiveData<List<Note>> getAllData(){
-    return notesList;
+        return notesList;
     }
 
-    private static class InsertAsyncTask extends AsyncTask<Note, Void, Void> {
+    private static class InsertAsyncTask extends AsyncTask<Note , Void , Void>{
 
         private NoteDAO noteDAO;
 
@@ -51,8 +50,7 @@ public class NoteRepository {
             return null;
         }
     }
-
-    private static class DeleteAsyncTask extends AsyncTask<Note, Void, Void> {
+    private static class DeleteAsyncTask extends AsyncTask<Note , Void , Void>{
 
         private NoteDAO noteDAO;
 
@@ -66,7 +64,7 @@ public class NoteRepository {
         }
     }
 
-    private static class UpdateAsyncTask extends AsyncTask<Note, Void, Void> {
+    private static class UpdateAsyncTask extends AsyncTask<Note , Void , Void>{
 
         private NoteDAO noteDAO;
 
@@ -80,7 +78,7 @@ public class NoteRepository {
         }
     }
 
-    private static class DeleteAllAsyncTask extends AsyncTask<Void, Void, Void> {
+    private static class DeleteAllAsyncTask extends AsyncTask<Void , Void , Void>{
 
         private NoteDAO noteDAO;
 
@@ -90,6 +88,7 @@ public class NoteRepository {
 
         @Override
         protected Void doInBackground(Void... voids) {
+
             noteDAO.deleteAll();
             return null;
         }
