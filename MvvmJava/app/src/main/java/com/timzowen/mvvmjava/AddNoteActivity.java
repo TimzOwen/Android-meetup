@@ -34,7 +34,6 @@ public class AddNoteActivity extends AppCompatActivity {
         numberPicker.setMaxValue(10);
 
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_close_24);
-        setTitle("Add Note.");
 
         Intent editIntent = getIntent();
         if (editIntent.hasExtra(EXTRA_ID)){
@@ -42,6 +41,8 @@ public class AddNoteActivity extends AppCompatActivity {
             mTitleEdit.setText(editIntent.getStringExtra(EXTRA_TITLE));
             mDescEdit.setText(editIntent.getStringExtra(EXTRA_DESC));
             numberPicker.setValue(editIntent.getIntExtra(EXTRA_PRIORITY,1));
+        }else {
+            setTitle("Add Note.");
         }
 
         mSaveBtn.setOnClickListener(view -> {
