@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">MvvmJava</string>
-    <string name="add">add</string>
-    <string name="title">title</string>
-    <string name="_1">1</string>
-    <string name="description">Description</string>
-    <string name="delete_all_notes">Delete All Notes</string>
-</resources>
